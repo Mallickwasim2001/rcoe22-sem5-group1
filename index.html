@@ -1,254 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/swiper-bundle.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width", initial-scale="1"/>
+        <title>RANDOM PASSWORD GENERATOR</title>
+        <link rel ="stylesheet" type="text/css" href="./main.css">
+    </head>
 
-
-    <title>Super Tool</title>
-</head>
-<body>
-    <header class="header">
-        <a href="#" class="logo">SUPER TOOL</a>
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li><a href="#" class="navbar-links">Home</a></li>
-                <li><a href="#about" class="navbar-links">About</a></li>
-                <li><a href="#tools" class="navbar-links">Tools</a></li>
-                <li><a href="#review" class="navbar-links">Reviews</a></li>
-                <li><a href="#contact" class="navbar-links">Contact</a></li>
-                <li><a href="https://forms.gle/8KhQcostetkXD513A" target="_blank" class="btn navbar-btn">Rate Us</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-navbar-btn">
-            <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
-            <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
-        </div>
-    </header>
-
-    <main>
-        <section class="section section-hero">
-            <div class="container grid grid-two-column">
-                <div class="hero-content">
-                    <h1 class="primary-heading">Tools to Level Up Your Game</h1>
-                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique alias, odit dolores unde sunt. Praesentium neque natus, iure nesciunt error tenetur animi quaerat? Iste voluptatem adipisci quis tenetur vero. Iure vel qui earum!</p>
-                    <a href="#tools" class="btn">Try Our Tools</a>
-                    <!-- Parent Div for Icons -->
-                    <div class="hero-icons">
-                        <div class="grid grid-two-column">
-                            <div class="hero-icon-style">
-                                <ion-icon name="logo-react" class="icon"></ion-icon>
-                                <h2>Easy to Use</h2>
-                                <p class="para">Simply Click on Tools & Follow the Steps.</p>
-                            </div>
-
-                            <div class="hero-icon-style">
-                                <ion-icon name="code-slash-outline" class="icon"></ion-icon>
-                                <h2>Time Saving</h2>
-                                <p class="para">Simply Click on Tools & Follow the Steps.</p>
-                            </div>
-                        </div>
-                    </div>
+    <body>
+        <div class="container">
+            <h2 class="title">Random Password Generator</h2>
+            <div class="result">
+                <div class="result__title field-title">
+                    Generated Password
                 </div>
-
-                <!-- Right Side Hero Image -->
-                <div class="hero-img">
-                    <img src="./Images/andras-vas-Bd7gNnWJBkU-unsplash.jpg" alt="hero section Image" class="image">
-                    <div class="hero-img-overlay">
-                        <p class="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, quisquam odit delectus sit odio corporis tempore quos, incidunt sequi voluptates officia doloremque ducimus blanditiis commodi? Inventore quaerat temporibus voluptatem quisquam! Ut commodi soluta quo.</p>
-                        <p class="para">SuperTool Team</p>
-                        <p class="para">Techomania Group</p>
-                    </div>
-
+                <div class="result__info right">
+                    click to copy
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- about us section  -->
-    <section class="section about" id="about">
-        <h1 class="starthead">about us.</h1>
-        <div class="container grid grid-two-column">
-            <div class="about-image">
-                <img src="./Images/aboutimage2.jpg" alt="">
-            </div>
-            <div class="about-text">
-                <h1 class="primary-heading abhead">We Make Free Online Tools</h1>
-                <p class="para">We Offer PDF, Video, Image and other Online Tools to Make Your Life Easier.</p>
-                <a href="#review" class="btn">See Reviews</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tools Section -->
-    <section class="section tools" id="tools">
-        <h1 class="starthead">our tools.</h1>
-        <p class="para">Choose From these Categories.</p>
-
-        <div class="container toolsflex">
-            <div class="boxes box1">
-                <div class="box">
-                <img src="./Illustrations/convertor.png" alt="">
+                <div class="result__info left">
+                    copied
                 </div>
-                <a href="#" class="btn">Convertor</a>
-            </div>
-
-            <div class="boxes box2">
-                <div class="box">
-                <img src="./Illustrations/compressor.png" alt="">
+                <div class="result__veiwbox" id="result">
+                    CLICK GENERATE
                 </div>
-                <a href="#" class="btn">Compressor</a>
+                <button id="copy-btn" style="--x: 0; --y: 0"> 
+                    <i class="far fa-copy"></i>
+                </button>
             </div>
-
-            <div class="boxes box3">
-                <div class="box">
-                <img src="./Illustrations/merger.png" alt="">
+            <div class="length range__slider" data-min="4" data-max="32">
+                <div class="length__title field-title" data-length="0">
+                    length:
                 </div>
-                <a href="#" class="btn">Merger</a>
+                <input type="range" id="slider" min="4" max="32" value="16">
             </div>
-
-            <div class="boxes box4">
-                <div class="box">
-                <img src="./Illustrations/protector.png" alt="">
+            <div class="settings">
+                <span class="setting__title field-title">
+                    setting
+                </span>
+                <div class="setting">
+                    <input type="checkbox" id="uppercase" checked>
+                    <label for="uppercase">
+                        Include Uppercase
+                    </label>
                 </div>
-                <a href="#" class="btn">Protector</a>
-            </div>
-
-            <div class="boxes">
-                <div class="box">
-                <img src="./Illustrations/downloader.png" alt="">
+                <div class="setting">
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">
+                        Include Lowercase
+                    </label>
                 </div>
-                <a href="#" class="btn">Downloader</a>
-            </div>
-
-            <div class="boxes box6">
-                <div class="box">
-                <img src="./Illustrations/generator.png" alt="">
+                <div class="setting">
+                    <input type="checkbox" id="number" checked>
+                    <label for="number">
+                        Include Numbers
+                    </label>
                 </div>
-                <a href="#" class="btn">Generator</a>
-            </div>
-
-        </div>
-
-        
-        </div>
-    </section>
-
-<!-- REVIEW SECTION STARTS -->
-    <section class="review section" id="review">
-        <h1 class="starthead">what our user's say.</h1>
-
-        <div class="reviews-content swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-
-                    <div class="review-box">
-                        <i class='bx bxs-quote-right'></i>
-                        <p class="review-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ducimus optio perspiciatis natus deserunt quam rerum dolore asperiores blanditiis, nemo mollitia sit iste libero quis.</p>
-                        <div class="review-profile">
-                            <h2>Audrey Bella</h2>
-                            <span>From Finland</span>
-                            <img src="./Images/review-1.jpg" alt="">
-                        </div>
-                    </div>
+                <div class="setting">
+                    <input type="checkbox" id="symbol" checked>
+                    <label for="symbol">
+                        Include Symbols
+                    </label>
                 </div>
-
-
-                <div class="swiper-slide">
-
-                    <div class="review-box">
-                        <i class='bx bxs-quote-right'></i>
-                        <p class="review-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ducimus optio perspiciatis natus deserunt quam rerum dolore asperiores blanditiis, nemo mollitia sit iste libero quis.</p>
-                        <div class="review-profile">
-                            <h2>John Mark</h2>
-                            <span>From USA</span>
-                            <img src="./Images/review-2.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="swiper-slide">
-
-                    <div class="review-box">
-                        <i class='bx bxs-quote-right'></i>
-                        <p class="review-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ducimus optio perspiciatis natus deserunt quam rerum dolore asperiores blanditiis, nemo mollitia sit iste libero quis.</p>
-                        <div class="review-profile">
-                            <h2>Alexa</h2>
-                            <span>From UAE</span>
-                            <img src="./Images/review-3.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                
-
-              </div>
-              
-              <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Contact Us Part -->
-    <section class="section contact" id="contact">
-        <h1 class="starthead">shoot us a mail.</h1>
-
-        <form action="" class="contact-form" id="contact-form">
-            <input type="text" name="" id="" placeholder="Your Name" class="name" required>
-            <input type="email" name="" id="" placeholder="Email Address..." class="email" required>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Write Message Here.." class="message" required></textarea>
-            <input type="submit" value="Send" class="send-btn">
-
-        </form>
-
-    </section>
-
-
-    <!-- Footer Section -->
-
-    <footer class="footer" id="footer">
-        <div class="row">
-            <div class="col">
-                <h3 class="logo">Super Tool</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eveniet, distinctio laborum labore modi, maxime blanditiis inventore omnis laboriosam mollitia quam? Velit totam ratione temporibus dolores, consectetur</p>
-
+                <button class="btn generate" id="generate">
+                    Generate Password
+                </button>
             </div>
-            <div class="col">
-                <h3 class="col2h3">Office</h3>
-                <p>ITPL Road</p>
-                <p>Whiotefield, Banglore</p>
-                <p>Karnataka, PIN 560066, India</p>
-                <p class="email-id">imailsupertool@gmail.com</p>
-                <h4>+91  - 0123456789</h4>
-            </div>
-            <div class="col">
-                <h3 class="col2h3">Links</h3>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#tools">Toools</a></li>
-                    <li><a href="#review">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-        </div>
-    </footer>
-
-    <!-- Links to Swiper JS -->
-    <script src="./JavaScript/swiper-bundle.min.js"></script>
-    <!-- Scripts Link -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="./JavaScript/index.js"></script>
-</body>
+        </div> 
+        <script type="text/javascript" src="./main.js"></script> 
+    </body>
 </html>
