@@ -32,9 +32,8 @@ Please follow the below steps to run this project.
 - Project Type : Mini Project
 
 ### Platform, Libraries and Frameworks used
-1. [NodeJS](https://nodejs.org)
-2. [ExpressJS](https://expressjs.org)
-3. [TensorFlow](https://tensorflowjs.com)
+1. Javascript firebase for backend 
+2. Javascript api for downloading file from www
 
 ### Dataset Used
 1. [Kaggle Dataset 1](https://kaggle.com/dataset1)
